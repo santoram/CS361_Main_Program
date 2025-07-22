@@ -1,0 +1,23 @@
+{
+  "name": "cs361-main-program",
+  "version": "1.0.0",
+  "main": "main_controller.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main_controller.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santoram/CS361_Main_Program.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santoram/CS361_Main_Program/issues"
+  },
+  "homepage": "https://github.com/santoram/CS361_Main_Program#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
