@@ -40,6 +40,7 @@ app.post('/exercises', asyncHandler(async (req, res)=>{
                             res.status(201).send(exerciseCreate);
                         }else {
                             res.status(400).send({Error: "Invalid request"});
+                            console.log('invalid date');
                         }
                     }else {
                         res.status(400).send({Error: "Invalid request"});

@@ -1,0 +1,13 @@
+import {Link} from 'react-router-dom'
+
+function Navigation(){
+    return (
+        <nav className="app-nav">
+            <Link to="/">Home</Link>
+            <Link to="/create-workout">Create Workout</Link>
+            <Link to="/contact-us">Contact Us</Link>
+        </nav>
+    )
+}
+
+export default Navigation;
