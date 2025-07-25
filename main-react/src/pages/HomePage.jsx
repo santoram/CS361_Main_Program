@@ -13,21 +13,21 @@ function HomePage({setExerciseToEdit}) {
         setWorkouts(data);
     }
 
-    useEffect(() => {
-        loadWorkouts();
-    }, []);
-
-
+    useEffect(() => {loadWorkouts();}, []);
 
 //  onDelete and onEdit leveraged   
     const onDelete = async(_id) => {
-        const response = await fetch(`./exercises/${_id}`, {method: 'DELETE'});
-        if (response.status == 204) {
-            alert(`Successfully deleted exercise with id: ${_id}`);
-            setWorkouts(workouts.filter(e=> e._id !== _id));
-        }else{
-            alert(`Failed to delete exercise with _id = ${_id}, status code = ${response.status}`);
-        }
+        let result = confirm('Are you sure you want to remove this exercise?\nAll related information will be lost.');
+        console.log(result);
+        if (result == true){
+            const response = await fetch(`./exercises/${_id}`, {method: 'DELETE'});
+            if (response.status == 204) {
+                alert(`Successfully deleted exercise with id: ${_id}`);
+                setWorkouts(workouts.filter(e=> e._id !== _id));
+            }else{
+                alert(`Failed to delete exercise with _id = ${_id}, status code = ${response.status}`);
+            };
+        };
     }
 
     const onEdit = (exercise) =>{

@@ -16,11 +16,11 @@ export const EditExercisePage = ({exerciseToEdit}) => {
             headers: {'Content-type': 'application/json'}, body: JSON.stringify(editedExercise)}
         );
         if(response.status === 200){
-            alert("Successfully edited the exercise")
+            alert("Successfully edited exercise.")
         }else{
             alert("Failed to edit the exercise, status code = " + response.status)
         }
-        navigate('/')
+        navigate('/home')
     };
 
     return (

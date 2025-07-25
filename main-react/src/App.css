@@ -55,11 +55,27 @@ tr th {
 }
 
 tr td {
-  border: 1px solid #E1A95F;
+  border: 1px solid black;
   padding: 5px;
   color: black;
-  text-align: center;
+  text-align: middle;
   background-color: white;
+}
+
+ol {
+  margin: 0px;
+  padding: 2px;
+  color: black;
+  text-align: left;
+  background-color: white;
+}
+
+.createsteps {
+  padding: 0px;
+  margin: 0px;
+  color: red;
+  text-align: left;
+  font-weight: bold;
 }
 
 .reactIcon:hover{
@@ -71,4 +87,35 @@ tr td {
 input {
   font-family: inherit;
   cursor: pointer;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: white;
+}
+
+label {
+  vertical-align: top;
+}
+
+label span {
+  margin: 10px;
+
+}
+
+form div{
+  display:flex;
+}
+
+.labelMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.contactMessage {
+  width: 800px;
+  height: 400px;
 }

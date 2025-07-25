@@ -2,6 +2,7 @@ import './App.css';
 import {useState} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
+import Welcome from './pages/Welcome'
 import HomePage from './pages/HomePage';
 import CreateWorkoutPage from './pages/CreateWorkout';
 import ContactUs from './pages/ContactUs';
@@ -24,7 +25,8 @@ function App() {
             <Router>
               <Navigation/>
               <Routes>
-                <Route path="/" element={<HomePage setExerciseToEdit={setExerciseToEdit}/>}></Route>
+                <Route path="/" element={<Welcome/>}></Route>                
+                <Route path="/home" element={<HomePage setExerciseToEdit={setExerciseToEdit}/>}></Route>
                 <Route path="/create-workout" element={<CreateWorkoutPage/>}></Route>
                 <Route path="/contact-us" element={<ContactUs/>}></Route>
                 <Route path="/edit-exercise" element={ <EditExercise exerciseToEdit = {exerciseToEdit}/>}></Route>

@@ -7,9 +7,9 @@ function WorkoutCollection({workouts, onDelete, onEdit}) {
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Name</th>
+                        <th>Exercise</th>
+                        <th>Weight</th>                       
                         <th>Reps</th>
-                        <th>Weight</th>
                         <th>Unit</th>
                         <th>Edit</th>
                         <th>Delete</th>

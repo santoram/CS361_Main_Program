@@ -8,8 +8,8 @@ function ExerciseItem({exercise, onDelete, onEdit}) {
         <tr className="collection-item">
             <td>{exercise.date}</td>
             <td>{exercise.name}</td>
-            <td>{exercise.reps}</td>
             <td>{exercise.weight}</td>
+            <td>{exercise.reps}</td>
             <td>{exercise.unit}</td>
             <td><div className="reactIcon"> <MdOutlineEdit onClick={e => {e.preventDefault(); onEdit(exercise)}}/></div></td>
             <td><div className="reactIcon"><FaRegTrashAlt onClick={e => {e.preventDefault(); onDelete(exercise._id)}}/></div></td>
