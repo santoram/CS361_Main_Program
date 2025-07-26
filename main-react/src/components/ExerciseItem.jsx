@@ -3,7 +3,8 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { MdOutlineEdit } from "react-icons/md";
 
 function ExerciseItem({exercise, onDelete, onEdit}) {
-    
+
+
     return (
         <tr className="collection-item">
             <td>{exercise.date}</td>

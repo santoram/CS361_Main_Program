@@ -7,8 +7,7 @@ import HomePage from './pages/HomePage';
 import CreateWorkoutPage from './pages/CreateWorkout';
 import ContactUs from './pages/ContactUs';
 import EditExercise from './pages/EditExercise';
-
-
+import image from './assets/logo.png';
 
 function App() {
 
@@ -17,19 +16,19 @@ function App() {
     return (
       <>
         <header className="title">
-            <h1>IronForm</h1>
+            <img src={image} alt="Logo"/>
             <p><em>Track workouts. See progress. Crush PRs.</em></p>
         </header>
 
         <div className="app">
             <Router>
-              <Navigation/>
+
               <Routes>
                 <Route path="/" element={<Welcome/>}></Route>                
-                <Route path="/home" element={<HomePage setExerciseToEdit={setExerciseToEdit}/>}></Route>
-                <Route path="/create-workout" element={<CreateWorkoutPage/>}></Route>
-                <Route path="/contact-us" element={<ContactUs/>}></Route>
-                <Route path="/edit-exercise" element={ <EditExercise exerciseToEdit = {exerciseToEdit}/>}></Route>
+                <Route path="/home" element={<><Navigation/><HomePage setExerciseToEdit={setExerciseToEdit}/></>}></Route>
+                <Route path="/create-workout" element={<><Navigation/><CreateWorkoutPage/></>}></Route>
+                <Route path="/contact-us" element={<><Navigation/><ContactUs/></>}></Route>
+                <Route path="/edit-exercise" element={<><Navigation/><EditExercise exerciseToEdit = {exerciseToEdit}/></>}></Route>
               </Routes>
             </Router>
         </div>

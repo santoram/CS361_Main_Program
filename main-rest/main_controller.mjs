@@ -33,7 +33,7 @@ app.post('/exercises', asyncHandler(async (req, res)=>{
 
         if (name != null && reps != null && weight != null 
             && unit != null && date != null){
-                if (reps > 0 && weight > 0){
+                if (reps > 0 && weight >= 0){
                     if (unit  == 'kgs' || unit == "lbs"){
                         if (verifyDate(date)){
                             const exerciseCreate = await exercises.createExercise(name, reps, weight, unit, date);

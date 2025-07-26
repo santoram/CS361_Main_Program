@@ -89,6 +89,10 @@ input {
   cursor: pointer;
 }
 
+.tooltip:hover .tooltiptext{
+  visibility: visible;
+}
+
 .tooltiptext {
   visibility: hidden;
   background-color: black;

@@ -5,7 +5,7 @@ import { IoInformationCircleOutline } from "react-icons/io5";
 
 export const CreateWorkoutPage = () => {
     const navigate = useNavigate();
-    const [name, setName] = useState('');
+    const [name, setName] = useState('Back Extension');
     const [reps, setReps] = useState('');
     const [weight, setWeight] = useState('');
     const [unit, setUnit] = useState('lbs');
@@ -27,12 +27,13 @@ export const CreateWorkoutPage = () => {
             <h2>Create Workout</h2>
             <p className = 'createsteps'>How to add an Excercise</p>
             <ol>
-                <li>Select an exercise <span className="tooltip"><IoInformationCircleOutline/><span className = "tooktiptext">Tooltip text</span></span></li>
-                <li>Select weight type <span className="tooltip"><IoInformationCircleOutline/></span></li>
-                <li>Select the metric <span className="tooltip"><IoInformationCircleOutline/></span></li>
-                <li>Provide the weight, sets and reps <span className="tooltip"><IoInformationCircleOutline/></span></li>
+                <li>Enter Date <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Use MM-DD-YY</span></span></li>
+                <li>Select an exercise <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Select movement from dropdown</span></span></li>
+                <li>Select weight <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Enter the prescibed weight amount</span></span></li>
+                <li>Select Reps  <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Enter how many times you performed the movement</span></span></li>
+                <li>Unit <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Select lbs for pounds, kgs for kilograms</span></span></li>
                 <li>Click <em>add exercise</em> once complete</li>
-                <li>Repeat until finished logging</li>
+                <li>Repeat until finished logging!</li>
             </ol>
             <p className = 'createsteps'>Click <em>Submit Workout</em> to add it to your journal once you're finsihed adding exercises</p>
             
@@ -56,11 +57,39 @@ export const CreateWorkoutPage = () => {
                             onChange={e => setDate(e.target.value)}></input>
                         </td>                        
                         <td>
-                            <input 
-                            type = "text" 
-                            placeholder="Enter exercise" 
-                            value={name} 
-                            onChange={e => setName(e.target.value)}></input>
+                            <select name="Select name" onChange={e => setName(e.target.value)}>
+                                <option value="Back Extension" selected>Back Extension</option>
+                                <option value="Barbell Rows">Barbell Rows</option>
+                                <option value="Bench Press">Bench Press</option>
+                                <option value="Bent Rows">Bent Rows</option>       
+                                <option value="Bulgarian Split Squat">Bulgarian Split Squat</option>
+                                <option value="Calf Raise">Calf Raise</option>
+                                <option value="Chest Press">Chest Press</option>
+                                <option value="Chin Ups">Chin Ups</option>   
+                                <option value="Deadlift">Deadlift</option>
+                                <option value="Dips">Dips</option>
+                                <option value="Dumbbell Rows">Dumbbell Rows</option>
+                                <option value="Flyes">Flyes</option>       
+                                <option value="Good Morning">Good Morning</option>
+                                <option value="Hip Abduction">Hip Abduction</option>
+                                <option value="Hip Adduction">Hip Adduction</option>
+                                <option value="Kettlebell Swings">Kettlebell Swings</option>      
+                                <option value="Lat Pulldowns">Lat Pulldowns</option>
+                                <option value="Leg Curls">Leg Curls</option>
+                                <option value="Leg Extension">Leg Extension</option>
+                                <option value="Leg Press">Leg Press</option>       
+                                <option value="Lunge">Lunge</option>
+                                <option value="Overhead Press">Overhead Press</option>
+                                <option value="Pec Deck Machine">Pec Deck Machine</option>
+                                <option value="Pull-ups">Pull-ups</option>   
+                                <option value="Push Jerk">Push Jerk</option>
+                                <option value="Lunges">Lunges</option>
+                                <option value="Push Press">Push Press</option>
+                                <option value="Reverse Lunge">Reverse Lunge</option>       
+                                <option value="Snatch">Snatch</option>
+                                <option value="Squat">Squat</option>
+                                <option value="Sumo Deadlift High Pull">Sumo Deadlift High Pull</option>
+                             </select>
                         </td>
                         <td>
                             <input 
