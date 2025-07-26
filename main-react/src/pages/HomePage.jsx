@@ -35,13 +35,11 @@ function HomePage({setExerciseToEdit}) {
         navigate("/edit-exercise");
     }
 
-
     return (
         <>
             <h2>My Workouts</h2>
-            <p><em>Access your workouts or create new ones.</em></p>
-            <p><em>Check PR's to monitor progress.</em></p>
-            <p><em>Search an exercise to learn about it.</em></p>
+            <p><em>Review, edit and delete historic workouts below.</em></p>
+            <p><em>Create new workouts or search historic ones using the links above!</em></p>
             <WorkoutCollection workouts={workouts} onDelete={onDelete} onEdit={onEdit}></WorkoutCollection>
         </>
     );

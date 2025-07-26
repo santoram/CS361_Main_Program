@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import CreateWorkoutPage from './pages/CreateWorkout';
 import ContactUs from './pages/ContactUs';
 import EditExercise from './pages/EditExercise';
+import SearchHistoricExercise from './pages/SearchHistoric';
 import image from './assets/logo.png';
 
 function App() {
@@ -22,11 +23,11 @@ function App() {
 
         <div className="app">
             <Router>
-
               <Routes>
                 <Route path="/" element={<Welcome/>}></Route>                
                 <Route path="/home" element={<><Navigation/><HomePage setExerciseToEdit={setExerciseToEdit}/></>}></Route>
                 <Route path="/create-workout" element={<><Navigation/><CreateWorkoutPage/></>}></Route>
+                <Route path="/search-historic" element={<><Navigation/><SearchHistoricExercise setExerciseToEdit={setExerciseToEdit}/></>}></Route>
                 <Route path="/contact-us" element={<><Navigation/><ContactUs/></>}></Route>
                 <Route path="/edit-exercise" element={<><Navigation/><EditExercise exerciseToEdit = {exerciseToEdit}/></>}></Route>
               </Routes>
