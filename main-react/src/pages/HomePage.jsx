@@ -11,7 +11,7 @@ function HomePage({setExerciseToEdit}) {
         const response = await fetch('/exercises');
         const data = await response.json();
         setWorkouts(data);
-    }
+    };
 
     useEffect(() => {loadWorkouts();}, []);
 
@@ -28,21 +28,21 @@ function HomePage({setExerciseToEdit}) {
                 alert(`Failed to delete exercise with _id = ${_id}, status code = ${response.status}`);
             };
         };
-    }
+    };
 
     const onEdit = (exercise) =>{
         setExerciseToEdit(exercise);
         navigate("/edit-exercise");
-    }
+    };
 
     return (
         <>
-            <h2>My Workouts</h2>
+            <h2>My Journal</h2>
             <p><em>Review, edit and delete historic workouts below.</em></p>
             <p><em>Create new workouts or search historic ones using the links above!</em></p>
             <WorkoutCollection workouts={workouts} onDelete={onDelete} onEdit={onEdit}></WorkoutCollection>
         </>
     );
-}
+};
 
 export default HomePage;

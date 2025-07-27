@@ -24,7 +24,7 @@ export const CreateWorkoutPage = () => {
 
     return (
         <div>
-            <h2>Create Workout</h2>
+            <h2>Add Exercise</h2>
             <p className = 'createsteps'>How to add an Excercise</p>
             <ol>
                 <li>Enter Date <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Use MM-DD-YY</span></span></li>
@@ -119,6 +119,6 @@ export const CreateWorkoutPage = () => {
             <button onClick={addExercise}>Add</button>
         </div>
     );
-}
+};
 
 export default CreateWorkoutPage;

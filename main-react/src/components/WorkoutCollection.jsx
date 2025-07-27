@@ -23,6 +23,6 @@ function WorkoutCollection({workouts, onDelete, onEdit}) {
         </div>
 
     );
-}
+};
 
 export default WorkoutCollection;

@@ -7,14 +7,11 @@ export function SearchHistoricExercise ({setExerciseToEdit}) {
     let name = null;
     const [workouts, setWorkouts] = useState([]);
     const navigate = useNavigate();
-
     const searchHistoric = async () => {
         const response = await fetch(`/exercises?name=${name}`);
         const data = await response.json();
         setWorkouts(data);
-        console.log(workouts);
-
-    }
+    };
 
 //  onDelete and onEdit leveraged   
     const onDelete = async(_id) => {
@@ -29,20 +26,20 @@ export function SearchHistoricExercise ({setExerciseToEdit}) {
                 alert(`Failed to delete exercise with _id = ${_id}, status code = ${response.status}`);
             };
         };
-    }
+    };
 
     const onEdit = (exercise) =>{
         console.log("we made it here")
         setExerciseToEdit(exercise);
         navigate("/edit-exercise");
-    }
-
+    };
 
     return (
         <div>
-            <h2>Search AnExercise</h2>
+            <h2>Search An Exercise</h2>
             <select name="Select name" onChange={e => name = e.target.value}>
-                <option value="Back Extension" selected>Back Extension</option>
+                <option value="Search Exercise">Search Exercise</option>
+                <option value="Back Extension">Back Extension</option>
                 <option value="Barbell Rows">Barbell Rows</option>
                 <option value="Bench Press">Bench Press</option>
                 <option value="Bent Rows">Bent Rows</option>       

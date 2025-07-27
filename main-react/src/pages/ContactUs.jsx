@@ -11,7 +11,7 @@ function ContactUs() {
         e.preventDefault();
         alert(`Thank you for contacting us ${name}!`)
         navigate("/home");
-    }
+    };
 
     return (
         <>
@@ -40,7 +40,7 @@ function ContactUs() {
                 <button type="submit" onClick={submitHandler}>Submit</button>
             </form>
         </>
-);
-}
+    );
+};
 
 export default ContactUs;
