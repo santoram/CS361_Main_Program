@@ -6,6 +6,7 @@ import WorkoutCollection from '../components/WorkoutCollection';
 function HomePage({setExerciseToEdit}) {
     const navigate = useNavigate();
     const [workouts, setWorkouts] = useState([]);
+
     
     const loadWorkouts = async () => {
         const response = await fetch('/exercises');
