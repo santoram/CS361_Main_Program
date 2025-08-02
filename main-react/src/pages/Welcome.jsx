@@ -17,21 +17,17 @@ function Welcome() {
         }
     };
 
-
     useEffect(() => {loadImage();}, []);
-
 
     return (
         <div>
-            <h3 className = "About">When training meets simplicity. </h3>
             <img src={random_image} alt="exercise"/>
-            <h4> Finally. An app that offers powerlifters and bodybuilders a simple, 
+            <p> Where training meets simplicity, IronForm offers powerlifters and bodybuilders a simple, 
                 straightforward, and user-friendly way to track workouts, monitor progress, 
-                and achieve goals. You focus on the lifts; we'll handle the logging.</h4>
+                and achieve goals. You focus on the lifts; we'll handle the logging.</p>
             <button className="EnterHere" onClick={Navigate} >Enter Here</button>
         </div>
     );
 };
-
 
 export default Welcome
