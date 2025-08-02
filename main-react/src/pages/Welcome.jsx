@@ -8,10 +8,15 @@ function Welcome() {
     const [random_image, setImage] = useState([]);
 
     const loadImage = async () => {
-        const response = await fetch('http://localhost:5555/random-image');
-        const imagedata = await response.blob();
-        setImage(URL.createObjectURL(imagedata));
+        try {
+            const response = await fetch('http://localhost:8000/random-image');
+            const imagedata = await response.blob();
+            setImage(URL.createObjectURL(imagedata));
+        }catch(error){
+            console.log('Failed to load image:',error);
+        }
     };
+
 
     useEffect(() => {loadImage();}, []);
 
