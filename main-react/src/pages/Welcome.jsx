@@ -9,10 +9,11 @@ function Welcome() {
 
     const loadImage = async () => {
         try {
-            const response = await fetch('http://localhost:8000/random-image');
-            const imagedata = await response.blob();
-            setImage(URL.createObjectURL(imagedata));
-        }catch(error){
+            const response = await fetch('http://localhost:5000/api/exercise-img'); 
+            console.log('Content-Type:', response.headers.get('Content-Type'));
+            const imageBlob = await response.blob();
+            setImage(URL.createObjectURL(imageBlob));
+        } catch (error) {
             console.log('Failed to load image:',error);
         }
     };

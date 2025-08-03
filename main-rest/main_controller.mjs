@@ -2,9 +2,14 @@ import 'dotenv/config';
 import express from 'express';
 import asyncHandler from 'express-async-handler';
 import * as exercises from './main_model.mjs';
+import cors from 'cors'; 
+import fetch from 'node-fetch';
 
 const app = express();
+
+// Middlewear needed 
 app.use(express.json());
+app.use(cors());
 
 const PORT = process.env.PORT;
 
@@ -18,6 +23,9 @@ const verifyDate = dateInfo => {
     const format = /^\d\d-\d\d-\d\d$/;
     return format.test(dateInfo);
 }
+
+
+//----------------------------------------------------------------------------//
 
 
 //create exercise
@@ -172,3 +180,17 @@ app.delete('/exercises/:id', asyncHandler(async (req, res)=>{
     const deletedCount = await exercises.deleteById(id);
     deletedCount > 0? res.status(204).send(): res.status(404).send({Error: "Not Found"});
 }))
+
+
+//----------------------------------------------------------------------------//
+//--------------------------------MICROSERVICE--------------------------------//
+//----------------------------------------------------------------------------//
+
+//get image
+app.get('/api/exercise-img', async (req, res) => {
+    const response = await fetch('http://127.0.0.1:8000/random-image');
+    res.setHeader('Content-Type', 'image/jpeg');
+    res.setHeader('Content-Length', response.headers.get('Content-Length'));
+    console.log('Content-Type:', response.headers.get('Content-Type'));
+    response.body.pipe(res); //stream the image directly to the client
+});
