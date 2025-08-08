@@ -194,3 +194,10 @@ app.get('/api/exercise-img', async (req, res) => {
     console.log('Content-Type:', response.headers.get('Content-Type'));
     response.body.pipe(res); //stream the image directly to the client
 });
+
+//get quote
+app.get('/api/quote', async (req, res) => {
+    const response = await fetch('http://127.0.0.1:5007/quote');
+    console.log(response)
+    
+});

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import { IoInformationCircleOutline } from "react-icons/io5";
 
@@ -10,6 +10,21 @@ export const CreateWorkoutPage = () => {
     const [weight, setWeight] = useState('');
     const [unit, setUnit] = useState('lbs');
     const [date, setDate] = useState('');
+    const [random_quote, setQuote] = useState([]);
+
+
+    const loadQuote = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/quote'); 
+            console.log('Content-Type:', response.headers.get('Content-Type'));
+            const data = await response.json();
+            setQuote(data);
+        } catch (error) {
+            console.log('Failed to load image:',error);
+        }
+    };
+
+    useEffect(() => {loadQuote();}, []);
 
     const addExercise = async () => {
             const newExercise = {name, reps, weight, unit, date}
@@ -25,6 +40,7 @@ export const CreateWorkoutPage = () => {
     return (
         <div>
             <h2>Add Exercise</h2>
+            <p>{random_quote}</p>
             <p className = 'createsteps'>How to add an Excercise</p>
             <ol>
                 <li>Enter Date <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Use MM-DD-YY</span></span></li>
