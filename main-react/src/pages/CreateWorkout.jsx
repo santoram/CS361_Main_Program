@@ -152,37 +152,37 @@ export const CreateWorkoutPage = () => {
             <button onClick={addExercise}>Add</button>
             
             <br></br>
-            
-            <table>
-                <caption>Need help picking an exercise?</caption>
-                <thead>
-                    <tr>
-                        <th>Select Muscle Group</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <select name="Muscle Target" onChange={e => setMuscleGroup(e.target.value)}>
-                                <option value="Chest">Chest</option>
-                                <option value="Back">Back</option>
-                                <option value="Shoulders">Shoulders</option>
-                                <option value="Biceps">Biceps</option>
-                                <option value="Triceps">Triceps</option>
-                                <option value="Legs (Quads)">Legs (Quads)</option>
-                                <option value="Legs (Hamstrings)">Legs (Hamstrings)</option>
-                                <option value="Legs (Glutes)">Legs (Glutes)</option>
-                                <option value="Calves">Calves</option>
-                                <option value="Abs/Core">Abs/Core</option>
-                                <option value="Forearms">Forearms</option>
-                            </select>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <button onClick={findRecommendations}>Search</button> 
-            <RecommendedExercises target={suggested_exercises}></RecommendedExercises>
-
+            <div>
+                <table>
+                    <caption>Need help picking an exercise?</caption>
+                    <thead>
+                        <tr>
+                            <th>Select Muscle Group</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select name="Muscle Target" onChange={e => setMuscleGroup(e.target.value)}>
+                                    <option value="Chest">Chest</option>
+                                    <option value="Back">Back</option>
+                                    <option value="Shoulders">Shoulders</option>
+                                    <option value="Biceps">Biceps</option>
+                                    <option value="Triceps">Triceps</option>
+                                    <option value="Legs (Quads)">Legs (Quads)</option>
+                                    <option value="Legs (Hamstrings)">Legs (Hamstrings)</option>
+                                    <option value="Legs (Glutes)">Legs (Glutes)</option>
+                                    <option value="Calves">Calves</option>
+                                    <option value="Abs/Core">Abs/Core</option>
+                                    <option value="Forearms">Forearms</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button onClick={findRecommendations}>Search</button> 
+                <RecommendedExercises target={suggested_exercises}></RecommendedExercises>
+            </div>
 
 
         </div>
