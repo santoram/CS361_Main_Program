@@ -1,16 +1,15 @@
 function RecommendedExercises({target}) {
-    const exercises = target.Exercises;
-    console.log(target)
-    // console.log(exercises)
+    let exercises = null;
     
-
-
-    return (   
+    if(target){
+        exercises = target.Exercises;
+        return (   
         <div>
-            <h1>Recommended Exercises</h1>
+            <h3>Recommended Exercises</h3>
             {exercises.map((exercise, index) => (<p key={index}>{exercise}</p> ))}
         </div>
     );
+    } 
 };
 
 export default RecommendedExercises;

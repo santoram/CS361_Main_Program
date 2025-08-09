@@ -181,7 +181,6 @@ export const CreateWorkoutPage = () => {
                 </tbody>
             </table>
             <button onClick={findRecommendations}>Search</button> 
-            {/* <p>{suggested_exercises.Exercises}</p> */}
             <RecommendedExercises target={suggested_exercises}></RecommendedExercises>
 
 
