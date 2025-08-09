@@ -1,11 +1,15 @@
+function RecommendedExercises({target}) {
+    const exercises = target.Exercises;
+    console.log(target)
+ 
 
-function recommendedExercises() {
+
     return (   
-       <div>
-            <p>Wecome to this part</p>
+        <div>
+            <h4>Recommended Exercises</h4>
+            {exercises.map((exercise, index) => (<p key={index}>{exercise}</p> ))}
         </div>
-
     );
 };
 
-export default recommendedExercises;
+export default RecommendedExercises;

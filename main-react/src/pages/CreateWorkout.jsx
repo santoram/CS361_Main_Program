@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import { IoInformationCircleOutline } from "react-icons/io5";
-import recommendedExercises from '../components/exerciseRecommend';
+import RecommendedExercises from '../components/exerciseRecommend';
 
 
 export const CreateWorkoutPage = () => {
@@ -54,7 +54,9 @@ export const CreateWorkoutPage = () => {
 
     return (
         <div>
+            
             <h2>Add Exercise</h2>
+
             <p><em>{random_quote.quote}</em></p>
             <p className = 'createsteps'>How to add an Excercise</p>
             <ol>
@@ -148,7 +150,9 @@ export const CreateWorkoutPage = () => {
                 </tbody>
             </table>
             <button onClick={addExercise}>Add</button>
-        
+            
+            <br></br>
+            
             <table>
                 <caption>Need help picking an exercise?</caption>
                 <thead>
@@ -177,7 +181,10 @@ export const CreateWorkoutPage = () => {
                 </tbody>
             </table>
             <button onClick={findRecommendations}>Search</button> 
-            <recommendedExercises></recommendedExercises>
+            {/* <p>{suggested_exercises.Exercises}</p> */}
+            <RecommendedExercises target={suggested_exercises}></RecommendedExercises>
+
+
 
         </div>
         
