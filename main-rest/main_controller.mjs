@@ -222,7 +222,10 @@ app.post('/api/exercise-recommend', async (req, res) => {
 
 
 //get exercise information
-app.get('/api/exercise-info', async (req, res) => {
-    const response = await fetch(`http://127.0.0.1:5003/exercise-info?exercise=${exercise}`);
+app.post('/api/exercise-info', async (req, res) => {
+    const target = req.body.exercise
+    console.log(target);
+    const response = await fetch(`http://127.0.0.1:5003/exercise-info?name=${target}`);
+    console.log(response)
     response.body.pipe(res);
 });
