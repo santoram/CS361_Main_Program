@@ -16,11 +16,11 @@ export const CreateWorkoutPage = () => {
     const loadQuote = async () => {
         try {
             const response = await fetch('http://localhost:5000/api/quote'); 
-            console.log('Content-Type:', response.headers.get('Content-Type'));
             const data = await response.json();
+            console.log("Quote:", data.quote);
             setQuote(data);
         } catch (error) {
-            console.log('Failed to load image:',error);
+            console.log('Error fettching quote:',error);
         }
     };
 
@@ -40,7 +40,7 @@ export const CreateWorkoutPage = () => {
     return (
         <div>
             <h2>Add Exercise</h2>
-            <p>{random_quote}</p>
+            <p><em>{random_quote.quote}</em></p>
             <p className = 'createsteps'>How to add an Excercise</p>
             <ol>
                 <li>Enter Date <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Use MM-DD-YY</span></span></li>

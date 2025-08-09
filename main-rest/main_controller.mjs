@@ -110,7 +110,7 @@ app.get('/exercises/:id', asyncHandler(async (req, res)=>{
 app.put('/exercises/:id', asyncHandler(async (req, res)=>{
         
     try {
-        const id = req.params.id
+        const id = req.params.id;
         const name = req.body.name;
         const reps = req.body.reps;
         const weight = req.body.weight;
@@ -198,6 +198,28 @@ app.get('/api/exercise-img', async (req, res) => {
 //get quote
 app.get('/api/quote', async (req, res) => {
     const response = await fetch('http://127.0.0.1:5007/quote');
-    console.log(response)
-    
+    response.body.pipe(res);
+});
+
+
+//get 1rm
+app.post('/api/orm', async (req, res) => {
+    const weight = parseInt(req.body.weight);
+    const reps = parseInt(req.body.reps);
+    const response = await fetch(`http://127.0.0.1:5004/1rm?weight=${weight}&reps=${reps}`);
+    response.body.pipe(res);
+});
+
+
+//get exercise recommendation
+app.get('/api/exercise-recommend', async (req, res) => {
+    const response = await fetch(`http://127.0.0.1:5002/exercise-recommend?muscle=${muscle}`);
+    response.body.pipe(res);
+});
+
+
+//get exercise information
+app.get('/api/exercise-info', async (req, res) => {
+    const response = await fetch(`http://127.0.0.1:5003/exercise-info?exercise=${exercise}`);
+    response.body.pipe(res);
 });

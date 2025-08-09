@@ -6,7 +6,9 @@ import WorkoutCollection from '../components/WorkoutCollection';
 function HomePage({setExerciseToEdit}) {
     const navigate = useNavigate();
     const [workouts, setWorkouts] = useState([]);
-
+    const [weight, setWeight] = useState('');
+    const [reps, setReps] = useState('');
+    const [orm, setORM] = useState('');
     
     const loadWorkouts = async () => {
         const response = await fetch('/exercises');
@@ -36,11 +38,58 @@ function HomePage({setExerciseToEdit}) {
         navigate("/edit-exercise");
     };
 
+    const calcOneRepMax = async() => {
+        const weight_and_reps = {weight, reps};
+        const response = await fetch('http://localhost:5000/api/orm', {method: "POST", headers: {'Content-type': 'application/json'}, body: JSON.stringify(weight_and_reps)});
+        if(response.status === 200){
+            const data = await response.json();
+            console.log("One Rep Max:", data);
+            setORM(data);
+            alert(`Projected 1RMX: ${orm.ORM}`)
+
+        }else{
+            alert("Not able to calculate, status code = " + response.status)
+        }
+    }
+
+
     return (
         <>
             <h2>My Journal</h2>
             <p><em>Review, edit and delete historic workouts below.</em></p>
             <p><em>Create new workouts or search historic ones using the links above!</em></p>
+            <div>
+                <table>
+                    <caption>1RMX Calculator</caption>
+                    <thead>
+                        <tr>
+                            <th>Weight</th>
+                            <th>Reps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input
+                                type = "number" 
+                                placeholder="Enter weight" 
+                                min = "0"
+                                value={weight} 
+                                onChange={e => setWeight(e.target.value)}></input>
+                            </td>
+                            <td>
+                                <input
+                                type = "number" 
+                                placeholder="Enter reps" 
+                                min = "0"
+                                value={reps} 
+                                onChange={e => setReps(e.target.value)}></input>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <button onClick={calcOneRepMax}>Calculate</button>
+            </div>
             <WorkoutCollection workouts={workouts} onDelete={onDelete} onEdit={onEdit}></WorkoutCollection>
         </>
     );
