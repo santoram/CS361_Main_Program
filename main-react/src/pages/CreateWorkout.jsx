@@ -11,6 +11,7 @@ export const CreateWorkoutPage = () => {
     const [unit, setUnit] = useState('lbs');
     const [date, setDate] = useState('');
     const [random_quote, setQuote] = useState([]);
+    const [muscle_group, setMuscleGroup] = useState('');
 
 
     const loadQuote = async () => {
@@ -20,11 +21,23 @@ export const CreateWorkoutPage = () => {
             console.log("Quote:", data.quote);
             setQuote(data);
         } catch (error) {
-            console.log('Error fettching quote:',error);
+            console.log('Error fetching quote:',error);
         }
     };
 
     useEffect(() => {loadQuote();}, []);
+
+    const findRecommendations = async () => {
+        alert(muscle_group)
+        const muscle_target = {muscle_group}
+        const response = await fetch('http://localhost:5000/api/exercise-recommend', {method: "POST", headers: {'Content-type': 'application/json'}, body: JSON.stringify(muscle_target)}); 
+        if(response.status === 200){
+            const data = await response.json();
+        }else{
+            alert("Not able to calculate, status code = " + response.status)
+        }
+    };
+
 
     const addExercise = async () => {
             const newExercise = {name, reps, weight, unit, date}
@@ -133,7 +146,42 @@ export const CreateWorkoutPage = () => {
                 </tbody>
             </table>
             <button onClick={addExercise}>Add</button>
+        
+            <table>
+                <caption>Need help picking an exercise?</caption>
+                <thead>
+                    <tr>
+                        <th>Select Muscle Group</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select name="MuscleGroup"> onChange={e => setMuscleGroup(e.target.value)}
+                                <option value="Chest">Chest</option>
+                                <option value="Back" selected>Back</option>
+                                <option value="Shoulders">Shoulders</option>
+                                <option value="Biceps" selected>Biceps</option>
+                                <option value="Triceps">Triceps</option>
+                                <option value="Legs (Quads)" selected>Legs (Quads)</option>
+                                <option value="Legs (Hamstrings)">Legs (Hamstrings)</option>
+                                <option value="Legs (Glutes)" selected>Legs (Glutes)</option>
+                                <option value="Calves">Calves</option>
+                                <option value="Abs/Core" selected>Abs/Core</option>
+                                <option value="Forearms">Forearms</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onClick={findRecommendations}>Search</button>
+        
+        
+        
+        
         </div>
+        
+
     );
 };
 

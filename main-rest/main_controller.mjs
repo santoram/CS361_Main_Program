@@ -212,8 +212,10 @@ app.post('/api/orm', async (req, res) => {
 
 
 //get exercise recommendation
-app.get('/api/exercise-recommend', async (req, res) => {
-    const response = await fetch(`http://127.0.0.1:5002/exercise-recommend?muscle=${muscle}`);
+app.post('/api/exercise-recommend', async (req, res) => {
+    const target = req.body.muscle_group
+    console.log(target)
+    const response = await fetch(`http://127.0.0.1:5002/exercise-recommend?name=${target}`);
     response.body.pipe(res);
 });
 
