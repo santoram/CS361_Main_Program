@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import { IoInformationCircleOutline } from "react-icons/io5";
+import recommendedExercises from '../components/exerciseRecommend';
 
 
 export const CreateWorkoutPage = () => {
@@ -12,6 +13,7 @@ export const CreateWorkoutPage = () => {
     const [date, setDate] = useState('');
     const [random_quote, setQuote] = useState([]);
     const [muscle_group, setMuscleGroup] = useState('');
+    const [suggested_exercises, setSuggestedExercises] = useState('');
 
 
     const loadQuote = async () => {
@@ -28,14 +30,13 @@ export const CreateWorkoutPage = () => {
     useEffect(() => {loadQuote();}, []);
 
     const findRecommendations = async () => {
-        alert(muscle_group)
-        const muscle_target = {muscle_group}
-        const response = await fetch('http://localhost:5000/api/exercise-recommend', {method: "POST", headers: {'Content-type': 'application/json'}, body: JSON.stringify(muscle_target)}); 
-        if(response.status === 200){
-            const data = await response.json();
-        }else{
-            alert("Not able to calculate, status code = " + response.status)
-        }
+        const muscle_target = {muscle_group};
+        console.log(muscle_target)
+        const response = await fetch('http://localhost:5000/api/exercise-recommend', {method: "POST", 
+            headers: {'Content-type': 'application/json'}, body:JSON.stringify(muscle_target)});
+        const recommendations = await response.json();
+        console.log(recommendations.Exercises);
+        setSuggestedExercises(recommendations);      
     };
 
 
@@ -49,6 +50,7 @@ export const CreateWorkoutPage = () => {
             }
             navigate('/home')
         };
+
 
     return (
         <div>
@@ -157,28 +159,26 @@ export const CreateWorkoutPage = () => {
                 <tbody>
                     <tr>
                         <td>
-                            <select name="MuscleGroup"> onChange={e => setMuscleGroup(e.target.value)}
+                            <select name="Muscle Target" onChange={e => setMuscleGroup(e.target.value)}>
                                 <option value="Chest">Chest</option>
-                                <option value="Back" selected>Back</option>
+                                <option value="Back">Back</option>
                                 <option value="Shoulders">Shoulders</option>
-                                <option value="Biceps" selected>Biceps</option>
+                                <option value="Biceps">Biceps</option>
                                 <option value="Triceps">Triceps</option>
-                                <option value="Legs (Quads)" selected>Legs (Quads)</option>
+                                <option value="Legs (Quads)">Legs (Quads)</option>
                                 <option value="Legs (Hamstrings)">Legs (Hamstrings)</option>
-                                <option value="Legs (Glutes)" selected>Legs (Glutes)</option>
+                                <option value="Legs (Glutes)">Legs (Glutes)</option>
                                 <option value="Calves">Calves</option>
-                                <option value="Abs/Core" selected>Abs/Core</option>
+                                <option value="Abs/Core">Abs/Core</option>
                                 <option value="Forearms">Forearms</option>
                             </select>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <button onClick={findRecommendations}>Search</button>
-        
-        
-        
-        
+            <button onClick={findRecommendations}>Search</button> 
+            <recommendedExercises></recommendedExercises>
+
         </div>
         
 

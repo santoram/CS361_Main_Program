@@ -213,9 +213,10 @@ app.post('/api/orm', async (req, res) => {
 
 //get exercise recommendation
 app.post('/api/exercise-recommend', async (req, res) => {
-    const target = req.body.muscle_group
-    console.log(target)
+    const target = req.body.muscle_group;
+    console.log(target);
     const response = await fetch(`http://127.0.0.1:5002/exercise-recommend?name=${target}`);
+    console.log(response);
     response.body.pipe(res);
 });
 
