@@ -52,6 +52,14 @@ export const CreateWorkoutPage = () => {
         setInfo(info);      
     };
 
+    const clearInfo = () => {
+        setInfo('');
+    }
+
+    const clearSuggestions = () => {
+        setSuggestedExercises('');
+    }
+
 
     const addExercise = async () => {
             const newExercise = {name, reps, weight, unit, date}
@@ -197,6 +205,7 @@ export const CreateWorkoutPage = () => {
                         </tbody>
                     </table>
                     <button onClick={findRecommendations}>Search</button> 
+                    <button onClick={clearSuggestions}>Clear</button>
                     <RecommendedExercises target={suggested_exercises}></RecommendedExercises>
                 </div>
 
@@ -261,6 +270,7 @@ export const CreateWorkoutPage = () => {
                         </tbody>
                     </table>
                     <button onClick={getInfo}>Explore</button>
+                    <button onClick={clearInfo}>Clear</button>
                     <GetExerciseInfo about_exercise={info}></GetExerciseInfo>
                 </div>
             </div>

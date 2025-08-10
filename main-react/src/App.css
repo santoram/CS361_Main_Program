@@ -39,7 +39,7 @@ body {
   border: 2px solid #940D2D;
   border-radius:5%;
   width: 200px;
-  height: 200px;
+  height: 150px;
 }
 
 p {
@@ -100,12 +100,20 @@ button {
   padding: 0;
   margin: 10px;
   justify-content: center;
-  border-top: 5px solid #940D2D;
+  border: 2px dashed #940D2D;
+  width: 100;
 }
 
 .exerciseRecommendandInfo {
   margin: 10px;
   border: 1px solid white;
+  width: 50%;
+}
+
+
+.exerciseInfo {
+  text-align: left;
+  padding: 0 10px;
 }
 
 table {

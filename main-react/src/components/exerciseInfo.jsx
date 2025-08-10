@@ -5,25 +5,13 @@ function GetExerciseInfo({about_exercise}) {
     
         return (   
             <div>
-                <table>
-                    <caption>About this Exercise</caption>
-                    <thead>
-                        <tr>
-                            <th>General info</th>
-                            <th>Target Muscles</th>
-                            <th>Tips</th>
-                            <th>Difficulty Level</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{about_exercise.general_info}</td>
-                            <td>{about_exercise.target_muscle_group}</td>
-                            <td>{about_exercise.safety_tips}</td>
-                            <td>{about_exercise.difficulty_level}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2>About this Exercise</h2>
+                <div className = "exerciseInfo">
+                    <p>Difficulty Level: {about_exercise.difficulty_level}</p>
+                    <p>General info: {about_exercise.general_info}</p>
+                    <p>Target Muscle Groups: {about_exercise.target_muscle_group}</p>
+                    <p>Safety Tips: {about_exercise.safety_tips}</p>
+                </div>
             </div>
         );
     
