@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import RecommendedExercises from '../components/exerciseRecommend';
+import GetExerciseInfo from '../components/exerciseInfo';
 
 
 export const CreateWorkoutPage = () => {
@@ -257,7 +258,7 @@ export const CreateWorkoutPage = () => {
                     </tbody>
                 </table>
                 <button onClick={getInfo}>Explore</button>
-
+                <GetExerciseInfo about_exercise={info}></GetExerciseInfo>
             </span>
 
 
