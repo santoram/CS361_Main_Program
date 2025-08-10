@@ -8,7 +8,7 @@ function HomePage({setExerciseToEdit}) {
     const [workouts, setWorkouts] = useState([]);
     const [weight, setWeight] = useState('');
     const [reps, setReps] = useState('');
-    const [orm, setORM] = useState('');
+    const [orm, setORM] = useState(null);
     
     const loadWorkouts = async () => {
         const response = await fetch('/exercises');
@@ -43,14 +43,20 @@ function HomePage({setExerciseToEdit}) {
         const response = await fetch('http://localhost:5000/api/orm', {method: "POST", headers: {'Content-type': 'application/json'}, body: JSON.stringify(weight_and_reps)});
         if(response.status === 200){
             const data = await response.json();
-            console.log("One Rep Max:", data);
+            console.log(data);
             setORM(data);
-            alert(`Projected 1RMX: ${orm.ORM}`)
+            // alert(`Projected 1RMX: ${orm.ORM}`)
 
         }else{
             alert("Not able to calculate, status code = " + response.status)
         }
     }
+
+    useEffect(() => {
+        if (orm) {
+            alert(`One Rep Max calculated: ${orm.ORM}`);
+        }
+    }, [orm]); 
 
 
     return (
