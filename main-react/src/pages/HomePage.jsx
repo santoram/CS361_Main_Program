@@ -60,44 +60,46 @@ function HomePage({setExerciseToEdit}) {
 
 
     return (
-        <>
+        <div className = "Homepage">
             <h2>My Journal</h2>
-            <p><em>Review, edit and delete historic workouts below.</em></p>
+            <p><em>Review, edit and delete workouts below.</em></p>
             <p><em>Create new workouts or search historic ones using the links above!</em></p>
-            <div>
-                <table>
-                    <caption>1RMX Calculator</caption>
-                    <thead>
-                        <tr>
-                            <th>Weight</th>
-                            <th>Reps</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input
-                                type = "number" 
-                                placeholder="Enter weight" 
-                                min = "0"
-                                value={weight} 
-                                onChange={e => setWeight(e.target.value)}></input>
-                            </td>
-                            <td>
-                                <input
-                                type = "number" 
-                                placeholder="Enter reps" 
-                                min = "0"
-                                value={reps} 
-                                onChange={e => setReps(e.target.value)}></input>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            <button onClick={calcOneRepMax}>Calculate</button>
+            <div className = "orm">
+                <div className = "ormfields">
+                    <table>
+                        <caption>1RMX Calculator</caption>
+                        <thead>
+                            <tr>
+                                <th>Weight</th>
+                                <th>Reps</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input
+                                    type = "number" 
+                                    placeholder="Enter weight" 
+                                    min = "0"
+                                    value={weight} 
+                                    onChange={e => setWeight(e.target.value)}></input>
+                                </td>
+                                <td>
+                                    <input
+                                    type = "number" 
+                                    placeholder="Enter reps" 
+                                    min = "0"
+                                    value={reps} 
+                                    onChange={e => setReps(e.target.value)}></input>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button onClick={calcOneRepMax}>Calculate</button>
             </div>
             <WorkoutCollection workouts={workouts} onDelete={onDelete} onEdit={onEdit}></WorkoutCollection>
-        </>
+        </div>
     );
 };
 

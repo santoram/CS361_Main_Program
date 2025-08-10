@@ -16,7 +16,7 @@ function App() {
 
     return (
       <>
-        <header className="title">
+        <header className="hero">
             <img src={image} alt="Logo"/>
             <p><em>Track workouts. See progress. Crush PRs.</em></p>
         </header>

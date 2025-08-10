@@ -2,7 +2,7 @@ import ExerciseItem from './ExerciseItem';
 
 function WorkoutCollection({workouts, onDelete, onEdit}) {
     return (   
-       <div className="collection-container">
+       <div className="container">
             <table>
                 <thead>
                     <tr>

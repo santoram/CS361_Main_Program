@@ -1,73 +1,139 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  background-color: white;
-}
-
 body {
   box-sizing: border-box;
-  background-color: white;
-  border: 20px solid #003875;
+  background-color: black;
+  border: 5px solid #940D2D;
   margin: 0;
-  display: flex;
+  /* display: flex; */
   min-width: 320px;
   min-height: 100vh;
   place-items: center;
 }
 
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: black
+}
+
 .app {
-  color: black;
-  padding: 20px 20px 300px 20px;
+  padding: 10px 20px;
 }
 
 .app-nav a {
   padding: 0px 20px 5px 20px;
-  text-decoration:none;
   color: #ffffff;
-  background-color: #003875;
-  line-height: 1;
-  vertical-align: middle;
+  background-color: #940D2D;
+  line-height: 2;
   font-size:1.3em;
   font-weight:bold;
   border-radius:3px;
   margin: 5px
 }
 
-.collection-container {
-  padding: 32px;
+.hero img {
+  
+  color: #ffffff;
+  background-color: #ffffff;
+  border: 2px solid #940D2D;
+  border-radius:5%;
+  width: 200px;
+  height: 200px;
+}
+
+p {
+  color: white;
+  background-color: black;
+}
+
+.Homepage p {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: white;
+  margin: 5px;
+  text-decoration: underline;
+}
+
+.orm {
+  margin: 20px 0px;
+  padding: 5px;
+  border: 2px solid #940D2D;
+}
+
+.ormfields {
+  padding: 5px;
+  color: white;  
+  display: flex;
+  justify-content: center;
+}
+
+caption{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+button {
+  background-color: #d0ccc2;
+  color: black;
+  margin: 10px;
+  padding: 2px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  border: 2px solid #940D2D;
+}
+
+.container2 {
+  display: flex;
+  padding: 0;
+  margin: 10px;
+  justify-content: center;
+  border-top: 5px solid #940D2D;
+}
+
+.exerciseRecommendandInfo {
+  margin: 10px;
+  border: 1px solid white;
 }
 
 table {
-  background-color: white;
+  color: white;
   border-collapse: collapse;
   width: 500px;
+  margin: 0;
+  padding: 0;
 }
 
 tr th {
-  border: 1px solid #003875;
-  padding: 5px;
   color: white;
   text-align: center;
   font-style: bold;
-  background-color: #003875;
+  background-color: #940D2D;
+  border: 1px solid #940D2D;
 }
 
 tr td {
-  border: 1px solid black;
-  padding: 5px;
-  color: black;
+  border-top: 1px solid #73787C;
+  border-bottom: 1px solid #73787C;  
+  padding: 3px;
   text-align: middle;
-  background-color: white;
 }
 
-ol {
-  margin: 0px;
-  padding: 2px;
-  color: black;
-  text-align: left;
-  background-color: white;
+.quote {
+  color: yellow;
+  margin: 0px 0px 10px 0px;
 }
 
 .createsteps {
@@ -78,9 +144,20 @@ ol {
   font-weight: bold;
 }
 
+ol {
+  margin: 0px 0px 0px 30px;
+  padding: 2px;
+  text-align: left;;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+
 .reactIcon:hover{
   color: hsl(2, 100%, 50%);
-  background-color: white;
+  background-color: black;
   cursor: pointer;
 }
 
@@ -99,7 +176,7 @@ input {
   color: white;
 }
 
-label {
+/* label {
   vertical-align: top;
 }
 
@@ -122,4 +199,4 @@ form div{
 .contactMessage {
   width: 800px;
   height: 400px;
-}
+} */

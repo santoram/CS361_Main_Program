@@ -69,19 +69,22 @@ export const CreateWorkoutPage = () => {
         <div>
             
             <h2>Add Exercise</h2>
-
-            <p><em>{random_quote.quote}</em></p>
-            <p className = 'createsteps'>How to add an Excercise</p>
-            <ol>
-                <li>Enter Date <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Use MM-DD-YY</span></span></li>
-                <li>Select an exercise <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Select movement from dropdown</span></span></li>
-                <li>Select weight <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Enter the prescibed weight amount</span></span></li>
-                <li>Select Reps  <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Enter how many times you performed the movement</span></span></li>
-                <li>Unit <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Select lbs for pounds, kgs for kilograms</span></span></li>
-                <li>Click <em>add exercise</em> once complete</li>
-                <li>Repeat until finished logging!</li>
-            </ol>
-            <p className = 'createsteps'>Click <em>Submit Workout</em> to add it to your journal once you're finished adding exercises</p>
+            <p className = "quote"><em>{random_quote.quote}</em></p>
+        
+            <div>
+                <p className = 'createsteps'>How to add an Excercise</p>    
+                    <ol>
+                        <li>Enter Date <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Use MM-DD-YY</span></span></li>
+                        <li>Select an exercise <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Select movement from dropdown</span></span></li>
+                        <li>Select weight <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Enter the prescibed weight amount</span></span></li>
+                        <li>Select Reps  <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Enter how many times you performed the movement</span></span></li>
+                        <li>Unit <span className="tooltip"><IoInformationCircleOutline/><span className = "tooltiptext">Select lbs for pounds, kgs for kilograms</span></span></li>
+                        <li>Click <em>add exercise</em> once complete</li>
+                        <li>Repeat until finished logging!</li>
+                    </ol>
+                <p className = 'createsteps'>Click <em>Submit Workout</em> to add it to your journal once you're finished adding exercises</p>
+            </div>
+            
             
             <table>
                 <thead>
@@ -164,103 +167,103 @@ export const CreateWorkoutPage = () => {
             </table>
             <button onClick={addExercise}>Add</button>
             
-            <br></br>
-            <span>
-                <table>
-                    <caption>Need help picking an exercise?</caption>
-                    <thead>
-                        <tr>
-                            <th>Select Muscle Group</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <select name="Muscle Target" onChange={e => setMuscleGroup(e.target.value)}>
-                                    <option value="Chest">Chest</option>
-                                    <option value="Back">Back</option>
-                                    <option value="Shoulders">Shoulders</option>
-                                    <option value="Biceps">Biceps</option>
-                                    <option value="Triceps">Triceps</option>
-                                    <option value="Legs (Quads)">Legs (Quads)</option>
-                                    <option value="Legs (Hamstrings)">Legs (Hamstrings)</option>
-                                    <option value="Legs (Glutes)">Legs (Glutes)</option>
-                                    <option value="Calves">Calves</option>
-                                    <option value="Abs/Core">Abs/Core</option>
-                                    <option value="Forearms">Forearms</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button onClick={findRecommendations}>Search</button> 
-                <RecommendedExercises target={suggested_exercises}></RecommendedExercises>
-            </span>
+            <div  className="container2">
+                <div className = "exerciseRecommendandInfo">
+                    <table>
+                        <caption>Need help picking an exercise?</caption>
+                        <thead>
+                            <tr>
+                                <th>Select Muscle Group</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select name="Muscle Target" onChange={e => setMuscleGroup(e.target.value)}>
+                                        <option value="Chest">Chest</option>
+                                        <option value="Back">Back</option>
+                                        <option value="Shoulders">Shoulders</option>
+                                        <option value="Biceps">Biceps</option>
+                                        <option value="Triceps">Triceps</option>
+                                        <option value="Legs (Quads)">Legs (Quads)</option>
+                                        <option value="Legs (Hamstrings)">Legs (Hamstrings)</option>
+                                        <option value="Legs (Glutes)">Legs (Glutes)</option>
+                                        <option value="Calves">Calves</option>
+                                        <option value="Abs/Core">Abs/Core</option>
+                                        <option value="Forearms">Forearms</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button onClick={findRecommendations}>Search</button> 
+                    <RecommendedExercises target={suggested_exercises}></RecommendedExercises>
+                </div>
 
-            <span>
-                <table>
-                    <caption>Exercise Info</caption>
-                    <thead>
-                        <tr>
-                            <th>Select an Exercise to Learn More!</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <select name="ExerciseInfo"  onChange={e => setExercise(e.target.value)}>
-                                    <option value="Arnold Press">Arnold Press</option>
-                                    <option value="Barbell Bench Press">Barbell Bench Press</option>
-                                    <option value="Barbell Rows">Barbell Rows</option>
-                                    <option value="Barbell Squats">Barbell Squats</option>
-                                    <option value="Box Jumps">Box Jumps</option>
-                                    <option value="Cable Flies">Cable Flies</option>
-                                    <option value="Clean and Jerk">Clean and Jerk</option>
-                                    <option value="Deadlift">Deadlift</option>
-                                    <option value="Deficit Deadlifts">Deficit Deadlifts</option>
-                                    <option value="Dips">Dips</option>
-                                    <option value="Dumbbell Curls">Dumbbell Curls</option>
-                                    <option value="Farmers Walk">Farmers Walk</option>
-                                    <option value="Hammer Rows">Hammer Rows</option>
-                                    <option value="Hang Cleans">Hang Cleans</option>
-                                    <option value="Hang Snatch">Hang Snatch</option>
-                                    <option value="Kettlebell Swings">Kettlebell Swings</option>
-                                    <option value="Lat Pulldowns">Lat Pulldowns</option>
-                                    <option value="Leg Extensions">Leg Extensions</option>
-                                    <option value="Leg Press">Leg Press</option>
-                                    <option value="Lying Leg Curls">Lying Leg Curls</option>
-                                    <option value="Muscle Ups">Muscle Ups</option>
-                                    <option value="Overhead Press (Barbell/Dumbbell)">Overhead Press (Barbell/Dumbbell)</option>
-                                    <option value="Pendley Rows">Pendley Rows</option>
-                                    <option value="Pistol Squat">Pistol Squat</option>
-                                    <option value="Plank">Plank</option>
-                                    <option value="Power Cleans">Power Cleans</option>
-                                    <option value="Power Snatch">Power Snatch</option>
-                                    <option value="Preacher Curls">Preacher Curls</option>
-                                    <option value="Pull-ups">Pull-ups</option>
-                                    <option value="Push Jerks">Push Jerks</option>
-                                    <option value="Romanian Deadlifts">Romanian Deadlifts</option>
-                                    <option value="Seated Calf Raises">Seated Calf Raises</option>
-                                    <option value="Seated Leg Curls">Seated Leg Curls</option>   
-                                    <option value="Shrugs">Shrugs</option>
-                                    <option value="Snatches">Snatches</option>
-                                    <option value="Split Squats">Split Squats</option>
-                                    <option value="Sumo Deadlift">Sumo Deadlift</option>
-                                    <option value="Sumo Deadlift High Pulls">Sumo Deadlift High Pulls</option>
-                                    <option value="Triceps Pushdowns (Cable)">Triceps Pushdowns (Cable)</option>
-                                    <option value="Weighted Burpees">Weighted Burpees</option>
-                                    <option value="Weighted Lunges">Weighted Lunges</option>
-                                    <option value="Weighted Push-ups">Weighted Push-ups</option>
-                                    <option value="Zercher Squat">Zercher Squat</option>                                                                                                                                               
-                                </select >
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button onClick={getInfo}>Explore</button>
-                <GetExerciseInfo about_exercise={info}></GetExerciseInfo>
-            </span>
-
+                <div className="exerciseRecommendandInfo">
+                    <table>
+                        <caption>Exercise Info</caption>
+                        <thead>
+                            <tr>
+                                <th>Select an Exercise to Learn More!</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select name="ExerciseInfo"  onChange={e => setExercise(e.target.value)}>
+                                        <option value="Arnold Press">Arnold Press</option>
+                                        <option value="Barbell Bench Press">Barbell Bench Press</option>
+                                        <option value="Barbell Rows">Barbell Rows</option>
+                                        <option value="Barbell Squats">Barbell Squats</option>
+                                        <option value="Box Jumps">Box Jumps</option>
+                                        <option value="Cable Flies">Cable Flies</option>
+                                        <option value="Clean and Jerk">Clean and Jerk</option>
+                                        <option value="Deadlift">Deadlift</option>
+                                        <option value="Deficit Deadlifts">Deficit Deadlifts</option>
+                                        <option value="Dips">Dips</option>
+                                        <option value="Dumbbell Curls">Dumbbell Curls</option>
+                                        <option value="Farmers Walk">Farmers Walk</option>
+                                        <option value="Hammer Rows">Hammer Rows</option>
+                                        <option value="Hang Cleans">Hang Cleans</option>
+                                        <option value="Hang Snatch">Hang Snatch</option>
+                                        <option value="Kettlebell Swings">Kettlebell Swings</option>
+                                        <option value="Lat Pulldowns">Lat Pulldowns</option>
+                                        <option value="Leg Extensions">Leg Extensions</option>
+                                        <option value="Leg Press">Leg Press</option>
+                                        <option value="Lying Leg Curls">Lying Leg Curls</option>
+                                        <option value="Muscle Ups">Muscle Ups</option>
+                                        <option value="Overhead Press (Barbell/Dumbbell)">Overhead Press (Barbell/Dumbbell)</option>
+                                        <option value="Pendley Rows">Pendley Rows</option>
+                                        <option value="Pistol Squat">Pistol Squat</option>
+                                        <option value="Plank">Plank</option>
+                                        <option value="Power Cleans">Power Cleans</option>
+                                        <option value="Power Snatch">Power Snatch</option>
+                                        <option value="Preacher Curls">Preacher Curls</option>
+                                        <option value="Pull-ups">Pull-ups</option>
+                                        <option value="Push Jerks">Push Jerks</option>
+                                        <option value="Romanian Deadlifts">Romanian Deadlifts</option>
+                                        <option value="Seated Calf Raises">Seated Calf Raises</option>
+                                        <option value="Seated Leg Curls">Seated Leg Curls</option>   
+                                        <option value="Shrugs">Shrugs</option>
+                                        <option value="Snatches">Snatches</option>
+                                        <option value="Split Squats">Split Squats</option>
+                                        <option value="Sumo Deadlift">Sumo Deadlift</option>
+                                        <option value="Sumo Deadlift High Pulls">Sumo Deadlift High Pulls</option>
+                                        <option value="Triceps Pushdowns (Cable)">Triceps Pushdowns (Cable)</option>
+                                        <option value="Weighted Burpees">Weighted Burpees</option>
+                                        <option value="Weighted Lunges">Weighted Lunges</option>
+                                        <option value="Weighted Push-ups">Weighted Push-ups</option>
+                                        <option value="Zercher Squat">Zercher Squat</option>                                                                                                                                               
+                                    </select >
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button onClick={getInfo}>Explore</button>
+                    <GetExerciseInfo about_exercise={info}></GetExerciseInfo>
+                </div>
+            </div>
 
         </div>
         
